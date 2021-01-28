@@ -29,7 +29,12 @@ python scripts/download_flownet2.py
 cd $REPO_DIR
 ```
 
-### Step 2: Train structure generator.
+### Step 2: Prepare datasets.
+```
+Working in process
+```
+
+### Step 3: Train structure generator.
 
 ```bash
 CUDA_VISIBLE_DEVICES='0,1,2,3' bash scripts/train_structure_generator.sh $DATASET
@@ -37,19 +42,19 @@ CUDA_VISIBLE_DEVICES='0,1,2,3' bash scripts/train_structure_generator.sh $DATASE
 
 , where `DATASET` can be one of `KITTI` or `Cityscapes`.
 
-### Step 3: Extract semantic-level predictions using the trained structure generator.
+### Step 4: Extract semantic-level predictions using the trained structure generator.
 
 ```bash
 CUDA_VISIBLE_DEVICES='0' bash scripts/test_structure_generator.sh $DATASET
 ```
 
-### Step 4: Train image generator.
+### Step 5: Train image generator.
 
 ```bash
 CUDA_VISIBLE_DEVICES='0,1,2,3' bash scripts/train_image_generator.sh $DATASET
 ```
 
-### Step 5: Extract RGB-level predictions using the trained image generator and predictions from the structure generator.
+### Step 6: Extract RGB-level predictions using the trained image generator and predictions from the structure generator.
 
 ```bash
 CUDA_VISIBLE_DEVICES='0' bash scripts/test_image_generator.sh $DATASET

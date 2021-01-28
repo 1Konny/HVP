@@ -1,6 +1,6 @@
 # Hierarchical Video Prediction
 
-PyTorch implementation of our paper, [Revisiting Hierarchical Approach for Persistent Long-Term Video Prediction](https://openreview.net/forum?id=3RLN4EPMdYd&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2021%2FConference%2FAuthors%23your-submissions)), which will be presented in ICLR 2021. Please check out more qualitative results in our [project page](https://anonymousiclr2021.github.io/hierarchicalvideoprediction/).
+PyTorch implementation of our paper, [Revisiting Hierarchical Approach for Persistent Long-Term Video Prediction](https://openreview.net/forum?id=3RLN4EPMdYd&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2021%2FConference%2FAuthors%23your-submissions)), which will be presented in ICLR 2021. Please check out more qualitative results in our [project page](https://1konny.github.io/HierarchicalVideoPrediction/).
 
 <p align="center">
     <img src="assets/pose.gif" width="70%" height="70%">
@@ -60,7 +60,6 @@ CUDA_VISIBLE_DEVICES='0' bash scripts/test_image_generator.sh $DATASET
 ## Acknowledgement
 
 - This repo is largely borrowed and modfied from [SVG](https://github.com/edenton/svg) and [Vid2Vid](https://github.com/NVIDIA/vid2vid).
-- This work was collaborated with and supported by Google Brain.
 
   
 

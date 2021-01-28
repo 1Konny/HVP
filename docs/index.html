@@ -1,0 +1,166 @@
+<!doctype html> 
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisiting Hierarchical Approach for Persistent Long-Term Video Prediction</title>
+</head>
+
+<body>
+<div>
+<ul id="nav">
+    <li><a href="#title">Top</a></li>
+    <li><a href="#dancing">Human Dancing</a>
+        <ul>
+            <li><a href="#dancing_comparisons">Model Comparisons</a></li>
+            <li><a href="#dancing_diversity">Sample Diversity</a></li>
+            <li><a href="#dancing_more">More Random Samples</a></li>
+            <li><a href="#dancing_transfer">Mask Predictions Transfer</a></li>
+        </ul>
+    </li>
+    <li><a href="#kitti">KITTI</a>
+        <ul>
+            <li><a href="#kitti_comparisons">Model Comparisons</a></li>
+            <li><a href="#kitti_diversity">Sample Diversity</a></li>
+            <li><a href="#kitti_more">More Random Samples</a></li>
+        </ul>
+    </li>
+    <li><a href="#cityscapes">Cityscapes</a>
+        <ul>
+            <li><a href="#cityscapes_comparisons">Model Comparisons</a></li>
+            <li><a href="#cityscapes_more">More Random Samples</a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+
+<div id="title" class="title">Revisiting Hierarchical Approach for Persistent Long-Term Video Prediction</div>
+
+<div class="author">
+    <a href="https://www.github.com/1Konny">Wonkwang Lee</a>, 
+    <a href="https://whieya.github.io/">Whie Jung</a>, 
+    <a href="https://sites.google.com/view/hanzhang">Han Zhang</a>, 
+    <a href="https://research.google/people/106719/">Ting Chen</a>, 
+    <a href="http://kohjingyu.com/">Jing Yu Koh</a>, 
+    <a href="https://thomasehuang.github.io/">Thomas Huang</a>, 
+    <a href="https://linkedin.com/in/hyungsuk-yoon-86711673/">Hyungsuk Yoon</a>, 
+    <a href="https://web.eecs.umich.edu/~honglak/">Honglak Lee</a>, 
+    <a href="https://maga33.github.io">Seunghoon Hong</a>
+</div>
+
+<div class="subsection">
+    <h2 style="word-spacing:20px">
+        <a href="https://openreview.net/pdf?id=3RLN4EPMdYd">Paper</a> 
+        <a href="https://github.com/1Konny/HierarchicalVideoPrediction">Code</a>
+    </h2>
+</div>
+
+<!-- <div class="section"> -->
+<!--     <h2>Supplementary Material</h2> -->
+<!-- </div> -->
+
+<div class="section">
+    <hr class="sepsection">
+    <h2>Abstract</h2>
+    <p>
+    Learning to predict the long-term future of video frames is notoriously challenging due to the inherent ambiguities in a distant future and dramatic amplification of prediction error over time.
+    Despite the recent advances in the literature, existing approaches are limited to moderately short-term prediction (less than a few seconds), while extrapolating it to a longer future quickly leads to destruction in structure and content.
+    In this work, we revisit the hierarchical models in video prediction.
+    Our method generates future frames by first estimating a sequence of dense semantic structures and subsequently translating the estimated structures to pixels by video-to-video translation model. 
+    Despite the simplicity, we show that modeling structures and their dynamics in categorical structure space with stochastic sequential estimator leads to surprisingly successful long-term prediction.
+    We evaluate our method on two challenging video prediction scenarios, <em>car driving</em> and <em>human dancing</em>, and demonstrate that it can generate complicated scene structures and motions over a very long time horizon (<em>i.e.</em> thousands frames), setting a new standard of video prediction with orders of magnitude longer prediction time than existing approaches.
+    </p>
+</div>
+
+
+<div class="section">
+    <a class="anchorsec" id="dancing"></a>
+    <hr class="sepsection">
+    <h2>Results On Human Dancing Dataset</h2>
+    <p>
+    We collected Web videos of a single person covering various dance moves <a href="https://www.instagram.com/imlisarhee/">(link)</a>.
+    All models are trained to predict 40 future frames given 5 context frames, where each frame is subsampled with the interval of 2.
+    All predictions shown below are produced conditioned on 5 ground-truth context frames.
+    </p>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="dancing_comparisons"></a>
+    <h2>Model Comparisons (64x64)</h2>
+    <iframe src="https://player.vimeo.com/video/463121137?autoplay=1&loop=1&autopause=0" width="512" height="493" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="dancing_diversity"></a>
+    <h2>Sample Diversity (128x128)</h2>
+    <iframe src="https://player.vimeo.com/video/463121056?autoplay=1&loop=1&autopause=0" width="512" height="717" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="dancing_more"></a>
+    <h2>More Random Samples (128x128)</h2>
+    <iframe src="https://player.vimeo.com/video/463121106?autoplay=1&loop=1&autopause=0" width="901" height="512" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="dancing_transfer"></a>
+    <h2>Transferring Predicted Structures To Different Appearances (128x128)</h2>
+    <iframe src="https://player.vimeo.com/video/463120980?autoplay=1&loop=1&autopause=0" width="900" height="286" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <p>
+    Given the predicted masks at the first column, we can synthesize dancing sequences with diverse human appearances as shown in the rest of the columns.
+    For this, we train Vid2Vids for each appearance and use them for the pixel-level translations.
+    </p>
+    </div>
+</div>
+    
+<div class="section">
+    <a class="anchorsec" id="kitti"></a>
+    <hr class="sepsection">
+    <h2>Results On KITTI Benchmark Dataset</h2>
+    <p>All models are trained to predict 15 future frames given 5 context frames, where each frame is subsampled with the interval of 2. All predictions shown below are produced conditioned on 5 ground-truth context frames.</p>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="kitti_comparisons"></a>
+    <h2>Model Comparisons (64x64)</h2>
+    <iframe src="https://player.vimeo.com/video/432363111?autoplay=1&loop=1&autopause=0" width="512" height="450" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="kitti_diversity"></a>
+    <h2>Sample Diversity (256x256)</h2>
+    <iframe src="https://player.vimeo.com/video/432363130?autoplay=1&loop=1&autopause=0" width="512" height="693" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="kitti_more"></a>
+    <h2>More Random Samples (256x256)</h2>
+    <iframe src="https://player.vimeo.com/video/432363154?autoplay=1&loop=1&autopause=0" width="933" height="512" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    
+</div>
+
+<div class="section">
+    <a class="anchorsec" id="cityscapes"></a>
+    <hr class="sepsection">
+    <h2>Results On Cityscapes Dataset</h2>
+    <p>
+    All model is trained to predict 3 future frames given 4 context frames, where each frame is subsampled with the interval of 3.
+    All predictions are produced conditioned on 4 ground-truth context frames.
+    </p>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="cityscapes_comparisons"></a>
+    <h2>Model Comparisons With Future Segmentation Methods (128x256)</h2>
+    <iframe src="https://player.vimeo.com/video/432362977?autoplay=1&loop=1&autopause=0" width="900" height="286" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div class="subsection">
+    <a class="anchorsubsec" id="cityscapes_more"></a>
+    <h2>More Random Samples (256x512)</h2>
+    <iframe src="https://player.vimeo.com/video/432358592?autoplay=1&loop=1&autopause=0" width="900" height="991" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <p>
+    In the Cityscapes dataset, we observe that some structures distant from the dashboard camera tend to be static. 
+    It is because the Cityscapes datasets are composed of very short training sequences (less than 30 frames), making the model unable to learn global scene transition. Please refer to our paper for a more detailed discussion.
+    </p>
+    </div>
+</div>
+</body>

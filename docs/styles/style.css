@@ -1,0 +1,236 @@
+:root{
+    --global-bg-color: #000000;
+    --global-text-color: #eaeaea;
+    --global-font-family: sans-serif;
+    --title-font-size: 32px;
+    --subtitle-font-size: 20px;
+    background-color: var( --global-bg-color );
+    color: var( --global-text-color );
+    font-family: var( --global-font-family );
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: var( --global-text-color );
+    background-color: transparent;
+    text-decoration: underline;
+}
+a.anchorsec {
+    display: block;
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+}
+a.anchorsubsec {
+    display: block;
+    position: relative;
+    top: -110px;
+    visibility: hidden;
+}
+
+#nav {
+    top: 0;
+    margin: 0px;
+    list-style: none;
+    position: fixed;
+    padding-left: 50px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: var( --global-bg-color );
+    width: 100%;
+}
+#nav li {
+    font-weight: bold;
+    float: left;
+    position: relative;
+    margin: 0px 10px;
+    font-size: var( --subtitle-font-size );
+    /* width: 200px; */
+    background-color: var( --global-bg-color );
+}
+#nav li a {
+    display: block;
+    text-decoration: none;
+    margin: 0;
+}
+#nav li:hover > a  {
+    margin: 0;
+}
+#nav li:hover  ul  {
+    opacity: 1;
+}
+#nav li:hover ul li {
+    overflow: visible;
+    padding: 0;
+    width: 200px;
+}
+#nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    opacity: 0;
+    width: auto;
+    /* background: white; */
+}
+#nav ul li {
+    float: none;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+#nav ul li:hover > a {
+    /* background: red; */
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+p {
+    text-align: justify;
+}
+
+.sepsection {
+    margin-top: 30px;
+    margin-bottom:10px;
+}
+
+.title {
+    font-size: var( --title-font-size );  
+    font-weight: bold;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.author {
+    font-size: var( --subtitle-font-size );  
+    font-weight: bold;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.links {
+    font-size: var( --subtitle-font-size );  
+    font-weight: bold;
+    padding-bottom: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section, .subsection {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
+    /* padding-top: 90px; */
+    /* top: -90px; */
+}
+.section > img, video, iframe {
+    margin: 0 auto;
+    display: block;
+}
+.subsection > img, video, iframe {
+    margin: 0 auto;
+    display: block;
+}
+
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-width: 1023px) {
+#nav {
+    top: 0;
+    margin: 0px;
+    list-style: none;
+    position: fixed;
+    padding-left: 10px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    background-color: var( --global-bg-color );
+    width: 100%;
+}
+
+#nav li {
+    float: left;
+    position: relative;
+    margin: 0px 7px;
+    /* font-size: 10px; */
+    font-size: var( --subtitle-font-size );
+    /* width: 200px; */
+    background-color: var( --global-bg-color );
+}
+
+/* #nav ul li { */
+/*     float: none; */
+/*     margin: 0; */
+/*     padding: 0; */
+/*     font-size: 8px; */
+/*     font-weight: normal; */
+/* } */
+
+.title {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+.author {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+.links {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+.abstract {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    display: block; /* or inline-block, at least its a block element */
+    text-align: justify;
+}
+.abstract > h2 {
+    text-align: center;
+}
+
+.section, .subsection {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: justify;
+}
+.section > h2, div {
+    text-align: center;
+}
+.section > img, video, iframe {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+.subsection > h2, div {
+    text-align: center;
+}
+.subsection > img, video, iframe {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+}

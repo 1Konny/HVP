@@ -12,3 +12,4 @@ pip install \
     opencv-python \
     deepspeed \
     moviepy \
+    scipy==1.1.0

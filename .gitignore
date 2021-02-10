@@ -3,3 +3,6 @@ __pycache__
 *.gif
 *.pth
 logs
+datasets_raw/KITTI
+datasets_raw/Cityscapes
+.ipynb_checkpoints

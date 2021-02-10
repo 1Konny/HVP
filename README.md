@@ -30,9 +30,7 @@ cd $REPO_DIR
 ```
 
 ### Step 2: Prepare datasets.
-```
-Working in process
-```
+Check it out in [this link](PREPARE_DATA.md)
 
 ### Step 3: Train structure generator.
 

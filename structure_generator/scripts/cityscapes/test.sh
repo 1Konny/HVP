@@ -33,7 +33,7 @@ NAME="K${K}_M${M}_${DATASET}_b${BETA}${TAG}"
 
 if [ "$DATASET" == "Cityscapes_128x256" ]; then
     CHANNELS=19
-    DATA_ROOT='datasets/Cityscapes_128x256'
+    DATA_ROOT='datasets/Cityscapes_256x512'
 fi
 
 GPU_FLAG="localhost:${CUDA_VISIBLE_DEVICES}"
